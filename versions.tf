@@ -16,7 +16,7 @@ terraform {
     organization = "eelab-automation"
 
     workspaces {
-      name = "digibank-sentinel"
+      name = "ec2vm-digibank-deploy"
     }
   }
 
