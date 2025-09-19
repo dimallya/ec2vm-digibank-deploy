@@ -27,22 +27,4 @@ resource "aws_instance" "ubuntu" {
   }
 }
 
-resource "null_resource" "run_script" {
-  depends_on = [aws_instance.ubuntu] # Ensure EC2 is created first
 
-  connection {
-    type        = "ssh"
-    user        = "ec2-user"
-    private_key = var.ssh_private_key
-    host        = aws_instance.ubuntu.public_ip # IP address of the remote server
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "cd /home/ec2-user",
-      "git clone https://github.com/digisic/digitalbank-gen-one.git",
-      "cd digitalbank-gen-one/deploy/docker-compose",
-      "docker-compose -f docker-compose-h2.yml up"
-    ]
-  }
-}
