@@ -13,8 +13,4 @@ variable "instance_name" {
   default = "Provisioned by Terraform"
 }
 
-variable "ssh_private_key" {
-  description = "Private key to connect to EC2"
-  type        = string
-  sensitive   = true
-}
+
