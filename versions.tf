@@ -12,12 +12,5 @@ terraform {
 
   required_version = ">= 0.15"
 
-  backend "remote" {
-    organization = "eelab-automation"
-
-    workspaces {
-      name = "ec2vm-digibank-deploy"
-    }
-  }
-
+  
 }
